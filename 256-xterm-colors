@@ -1,0 +1,39 @@
+#!/bin/bash
+
+function dump_color() {
+  printf "\e[48;5;%dm\e[38;5;15m    " $1
+  printf "\e[48;5;0m\e[38;5;%dm" $1
+}
+
+function br() {
+  printf "\n"
+}
+
+br
+for i in {0..15}
+do
+  dump_color $i
+done
+
+br;br
+
+for i in {0..5}
+do
+  for j in {0..5}
+  do
+    for k in {0..5}
+    do
+      dump_color $((16+j*36+i*6+k))
+    done
+    printf "  "
+  done
+  br
+done
+
+br
+
+for i in {232..255}
+do
+  dump_color $i
+done
+br
